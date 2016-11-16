@@ -31,4 +31,35 @@ class MY_Controller extends CI_Controller
     {
         return $this->session->userdata("auth") ? true : false;
     }
+
+    protected function setMensajeFlash($mensaje, $tipo) {
+        $mensajeFlash = [
+            "mensaje" => $mensaje,
+            "clase" => ""
+        ];
+
+        switch ($tipo) {
+            case "exito":
+                $mensaje["clase"] = "alert alert-success";
+                break;
+            case "advertencia":
+                $mensaje["clase"] = "alert alert-warning";
+                break;
+            case "error":
+                $mensaje["clase"] = "alert alert-danger";
+                break;
+        }
+
+        $this->session->set_userdata(["mensajeFlash" => $mensajeFlash]);
+    }
+
+    protected function getMensajeFlash()
+    {
+        return $this->session->userdata("mensajeFlash");
+    }
+
+    protected function unsetMensajeFlash()
+    {
+        $this->session->unset_userdata("mensajeFlash");
+    }
 }
