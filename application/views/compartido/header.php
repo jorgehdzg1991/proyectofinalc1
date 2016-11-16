@@ -19,6 +19,7 @@
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/pines-notify/jquery.pnotify.default.css") ?>">
     <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/codeprettifier/prettify.css") ?>' />
     <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/form-toggle/toggles.css") ?>' />
 
@@ -97,3 +98,4 @@
 
     <div id="page-content">
         <div id='wrap'>
+            <input type="hidden" id="mensajeFlash" value='<?php echo isset($mensajeFlash) ? json_encode($mensajeFlash) : '' ?>'>

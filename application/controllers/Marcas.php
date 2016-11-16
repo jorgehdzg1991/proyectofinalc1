@@ -58,10 +58,12 @@ class Marcas extends MY_Controller
         ]);
 
         if ($result == true) {
-            redirect("marcas/index");
+            $this->setMensajeFlash("Éxito", "Marca creada correctamente", "success");
         } else {
-            die("No se pudo guardar");
+            $this->setMensajeFlash("Error", "No se pudo guardar la marca. Intente nuevamente.", "error");
         }
+
+        redirect("marcas/index");
     }
 
     public function editar()

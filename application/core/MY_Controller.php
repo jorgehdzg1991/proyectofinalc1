@@ -9,6 +9,13 @@ class MY_Controller extends CI_Controller
 
     protected function CargarVista($nombreVista, $datos = null)
     {
+        $mensajeFlash = $this->getMensajeFlash();
+
+        if ($mensajeFlash != null) {
+            $datos["mensajeFlash"] = $mensajeFlash;
+            $this->unsetMensajeFlash();
+        }
+
         if ($nombreVista == "login/index") {
             $this->load->view($nombreVista);
             return;
@@ -32,23 +39,13 @@ class MY_Controller extends CI_Controller
         return $this->session->userdata("auth") ? true : false;
     }
 
-    protected function setMensajeFlash($mensaje, $tipo) {
+    protected function setMensajeFlash($titulo, $mensaje, $tipo) {
         $mensajeFlash = [
-            "mensaje" => $mensaje,
-            "clase" => ""
+            "title" => $titulo,
+            "text" => $mensaje,
+            "history" => false,
+            "type" => $tipo
         ];
-
-        switch ($tipo) {
-            case "exito":
-                $mensaje["clase"] = "alert alert-success";
-                break;
-            case "advertencia":
-                $mensaje["clase"] = "alert alert-warning";
-                break;
-            case "error":
-                $mensaje["clase"] = "alert alert-danger";
-                break;
-        }
 
         $this->session->set_userdata(["mensajeFlash" => $mensajeFlash]);
     }
