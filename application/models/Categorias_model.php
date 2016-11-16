@@ -10,7 +10,7 @@ class Categorias_model extends CI_Model{
     public $id;
     public $nombre;
     public $usuarios_id;
-    public $fechaCreachon;
+    public $fechaCreacion;
     public $estatus;
     
     
