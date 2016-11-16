@@ -20,7 +20,7 @@ class Productos_model extends CI_Model
     
     public function obtenerTodos()
     {
-        $query = $this->db->get_where("productos", ["estatus" => 1], 1);
+        $query = $this->db->get_where("productos", ["estatus" => 1]);
         return $query->result_array();
     }
 
