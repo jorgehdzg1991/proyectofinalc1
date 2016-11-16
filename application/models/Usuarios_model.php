@@ -13,7 +13,7 @@ class Usuarios_model extends CI_Model
 
     public function obtenerTodos()
     {
-        $query = $this->db->get("usuarios");
+        $query = $this->db->get_where("usuarios", ["estatus" => 1]);
         return $query->result_array();
     }
 
@@ -25,7 +25,12 @@ class Usuarios_model extends CI_Model
 
     public function obtenerPorCredenciales($username, $password)
     {
-        $query = $this->db->get_where("usuarios", ["login" => $username, "passwd" => md5($password)], 1);
+        $query = $this->db->get_where("usuarios", [
+            "login" => $username,
+            "passwd" => md5($password),
+            "estatus" => 1
+        ], 1);
+
         return $query->row_array();
     }
 
