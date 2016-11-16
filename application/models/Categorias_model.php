@@ -16,7 +16,7 @@ class Categorias_model extends CI_Model{
     
     public function obtenerTodos()
     {
-        $query = $this->db->get("categorias");
+        $query = $this->db->get_where("categorias", ["estatus" => 1]);
         return $query->result_array();
     }
 
