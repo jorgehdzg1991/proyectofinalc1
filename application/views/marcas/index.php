@@ -4,6 +4,13 @@
         <li>Marcas</li>
     </ol>
     <h1>Marcas</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            <a href="<?php echo site_url("marcas/crear") ?>" class="btn btn-primary">
+                <i class="fa fa-file-o"></i> Crear nueva marca
+            </a>
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -35,10 +42,10 @@
                                     <td>' . $marca["usuario"] . '</td>
                                     <td>' . $marca["fecha"] . '</td>
                                     <td>
-                                        <a href="" class="btn btn-default btn-sm" title="Editar marca">
+                                        <a href="' . site_url("marcas/editar") . '" class="btn btn-default btn-sm" title="Editar marca">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <a href="" class="btn btn-default btn-sm" title="Eliminar marca">
+                                        <a href="' . site_url("marcas/eliminar") . '" class="btn btn-default btn-sm" title="Eliminar marca">
                                             <i class="fa fa-times"></i>
                                         </a>
                                     </td>

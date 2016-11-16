@@ -37,4 +37,40 @@ class Marcas extends MY_Controller
 
         $this->CargarVista("marcas/index", $datos);
     }
+
+    public function crear()
+    {
+        $datos = [
+            "titulo" => "Marcas"
+        ];
+
+        $this->CargarVista("marcas/crear", $datos);
+    }
+
+    public function guardar()
+    {
+        $nombre = $_POST["nombre"];
+        $usuarios_id = $this->session->userdata("auth")["id"];
+
+        $result = $this->marcas_model->crear([
+            "nombre" => $nombre,
+            "usuarios_id" => $usuarios_id
+        ]);
+
+        if ($result == true) {
+            redirect("marcas/index");
+        } else {
+            die("No se pudo guardar");
+        }
+    }
+
+    public function editar()
+    {
+
+    }
+
+    public function eliminar()
+    {
+
+    }
 }
