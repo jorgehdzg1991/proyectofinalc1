@@ -13,7 +13,12 @@ class Rightbarmenu
             "Configuración del sistema" => [
                 "link" => "configuracion/index",
                 "icono" => "fa fa-cogs",
-                "activo" => false
+                "activo" => false,
+                "nodos" => [
+                    "Usuarios del sistema" => [
+
+                    ]
+                ]
             ],
             "Catálogos" => [
                 "link" => "catalogos/index",
@@ -37,9 +42,9 @@ class Rightbarmenu
                     ]
                 ]
             ],
-            "Almacenes" => [
-                "link" => "almacenes/index",
-                "icono" => "fa fa-truck",
+            "Consulta en almacenes" => [
+                "link" => "consulta/index",
+                "icono" => "fa fa-search",
                 "activo" => false
             ],
             "Movimientos" => [
