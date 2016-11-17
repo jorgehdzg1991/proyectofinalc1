@@ -66,13 +66,51 @@ class Marcas extends MY_Controller
         redirect("marcas/index");
     }
 
-    public function editar()
+    public function editar($id)
     {
+        $datos = [
+            "titulo" => "Marcas"
+        ];
 
+        $marca = $this->marcas_model->obtenerPorId($id);
+
+        if ($marca != null) {
+            $datos["marca"] = $marca;
+            $this->CargarVista("marcas/editar", $datos);
+        } else {
+            $this->setMensajeFlash("Advertencia", "No se encontró la marca que quería editar", "error");
+            redirect("marcas/index");
+        }
     }
 
-    public function eliminar()
+    public function actualizar()
     {
+        $id = $_POST["id"];
+        $nombre = $_POST["nombre"];
 
+        $result = $this->marcas_model->editar($id, [
+            "nombre" => $nombre
+        ]);
+
+        if ($result == true) {
+            $this->setMensajeFlash("Éxito", "Marca actualizada correctamente", "success");
+            redirect("marcas/index");
+        } else {
+            $this->setMensajeFlash("Error", "No se pudo actualizar la marca. Intente nuevamente.", "error");
+            redirect("marcas/editar/$id");
+        }
+    }
+
+    public function eliminar($id)
+    {
+        $result = $this->marcas_model->eliminar($id);
+
+        if ($result == true) {
+            $this->setMensajeFlash("Éxito", "Marca eliminada correctamente", "success");
+        } else {
+            $this->setMensajeFlash("Error", "No se pudo eliminar la marca. Intente nuevamente.", "error");
+        }
+
+        redirect("marcas/index");
     }
 }

@@ -2,7 +2,7 @@
     <ol class="breadcrumb">
         <li><a href="<?php echo site_url("inicio/index") ?>">Inicio</a></li>
         <li><a href="<?php echo site_url("marcas/index") ?>">Marcas</a></li>
-        <li>Crear</li>
+        <li>Crear marca</li>
     </ol>
     <h1>Marcas</h1>
     <div class="options">

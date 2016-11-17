@@ -34,20 +34,31 @@
                             </thead>
                             <tbody>
                             <?php
-                            foreach ($marcas as $marca) {
+                            if (count($marcas) > 0) {
+                                foreach ($marcas as $marca) {
+                                    echo '
+                                    <tr>
+                                        <td>' . $marca["id"] . '</td>
+                                        <td>' . $marca["nombre"] . '</td>
+                                        <td>' . $marca["usuario"] . '</td>
+                                        <td>' . $marca["fecha"] . '</td>
+                                        <td>
+                                            <a href="' . site_url("marcas/editar/{$marca["id"]}") . '" class="btn btn-default btn-sm" title="Editar marca">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="javascript: eliminarMarca(\'' . site_url("marcas/eliminar/{$marca["id"]}") . '\', \'' . $marca["nombre"] . '\');" class="btn btn-default btn-sm" title="Eliminar marca">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>';
+                                }
+                            } else {
                                 echo '
                                 <tr>
-                                    <td>' . $marca["id"] . '</td>
-                                    <td>' . $marca["nombre"] . '</td>
-                                    <td>' . $marca["usuario"] . '</td>
-                                    <td>' . $marca["fecha"] . '</td>
-                                    <td>
-                                        <a href="' . site_url("marcas/editar") . '" class="btn btn-default btn-sm" title="Editar marca">
-                                            <i class="fa fa-pencil"></i>
-                                        </a>
-                                        <a href="' . site_url("marcas/eliminar") . '" class="btn btn-default btn-sm" title="Eliminar marca">
-                                            <i class="fa fa-times"></i>
-                                        </a>
+                                    <td colspan="5">
+                                        No se encontraron registros en tu catálogo de marcas. 
+                                        Si deseas crear uno ahora, haz click en el botón de abajo.<br><br>
+                                        <a href="' . site_url("marcas/crear") . '" class="btn btn-primary">Crear una marca ahora</a>
                                     </td>
                                 </tr>';
                             }
@@ -60,3 +71,28 @@
         </div>
     </div>
 </div>
+
+<script>
+    function eliminarMarca(url, nombreMarca) {
+        bootbox.confirm({
+            title: 'Eliminar marca: ' + nombreMarca,
+            message: '¿Realmente deseas eliminar esta marca?',
+            buttons: {
+                'cancel': {
+                    label: 'No realmente',
+                    className: 'btn-default'
+                },
+                'confirm': {
+                    label: 'Si, elimínala',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function(result) {
+                if (result) {
+                    window.location = url;
+                }
+            }
+        });
+
+    }
+</script>
