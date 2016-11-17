@@ -15,8 +15,11 @@ class Rightbarmenu
                 "icono" => "fa fa-cogs",
                 "activo" => false,
                 "nodos" => [
+                    "Configuración general" => [
+                        "link" => "configuracion/index"
+                    ],
                     "Usuarios del sistema" => [
-
+                        "link" => "usuarios/index"
                     ]
                 ]
             ],
