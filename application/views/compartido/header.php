@@ -13,7 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 
 
-    <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
+    <link href='<?php echo base_url("assets/demo/variations/sidebar-green.css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
 
     <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
 
@@ -24,6 +24,16 @@
     <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/form-toggle/toggles.css") ?>' />
 
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
+
+    <style>
+        .panel-primary .panel-heading {
+            background-color: #50dfab !important;
+        }
+
+        .btn-primary {
+            background-color: #50dfab !important;
+        }
+    </style>
 </head>
 
 <body class="">

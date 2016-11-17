@@ -36,9 +36,11 @@
     <script type='text/javascript' src='<?php echo base_url("assets/js/application.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/demo/demo.js") ?>'></script>
     <script>
-        if ($("#mensajeFlash").val() !== "") {
-            $.pnotify(JSON.parse($("#mensajeFlash").val()));
-        }
+        $(document).ready(function () {
+            if ($("#mensajeFlash").val() !== "") {
+                $.pnotify(JSON.parse($("#mensajeFlash").val()));
+            }
+        });
     </script>
 
     </body>
