@@ -1,19 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-class Categorias_model extends CI_Model{
-    public $id;
-    public $nombre;
-    public $usuarios_id;
-    public $fechaCreacion;
-    public $estatus;
-    
-    
+class Categorias_model extends CI_Model
+{
     public function obtenerTodos()
     {
         $query = $this->db->get_where("categorias", ["estatus" => 1]);

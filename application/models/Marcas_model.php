@@ -3,12 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Marcas_model extends CI_Model
 {
-    public $id;
-    public $nombre;
-    public $usuarios_id;
-    public $fechaCreacion;
-    public $estatus;
-    
     public function obtenerTodos()
     {
         $query = $this->db->get_where("marcas", ["estatus" => 1]);

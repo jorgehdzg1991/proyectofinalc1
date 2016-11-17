@@ -3,15 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Movimientos_model extends CI_Model
 {
-    public $id;
-    public $cantidad;
-    public $observaciones;
-    public $tiposmovimientos_id;
-    public $productos_id;
-    public $almacenes_id;
-    public $usuarios_id;
-    public $fecha;
-
     public function obtenerTodos()
     {
         $query = $this->db->get_where("movimientos", ["estatus" => 1]);

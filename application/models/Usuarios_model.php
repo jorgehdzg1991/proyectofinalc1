@@ -3,14 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios_model extends CI_Model
 {
-    public $id;
-    public $nombre;
-    public $perfil;
-    public $login;
-    public $passwd;
-    public $fechaRegistro;
-    public $estatus;
-
     public function obtenerTodos()
     {
         $query = $this->db->get_where("usuarios", ["estatus" => 1]);

@@ -3,13 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Unidades_model extends CI_Model
 {
-    public $id;
-    public $nombre;
-    public $abreviatura;
-    public $usuario_id;
-    public $fechaCreacion;
-    public $estatus;
-    
     public function obtenerTodos()
     {
         $query = $this->db->get_where("unidades", ["estatus" => 1]);

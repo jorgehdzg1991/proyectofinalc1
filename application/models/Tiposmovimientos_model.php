@@ -3,9 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Tiposmovimientos_model extends CI_Model
 {
-    public $id;
-    public $nombre;
-
     public function obtenerTodos()
     {
         $query = $this->db->get("tiposmovimientos");
