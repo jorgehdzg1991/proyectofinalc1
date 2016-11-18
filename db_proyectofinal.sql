@@ -2,7 +2,7 @@
 MySQL Backup
 Source Server Version: 10.1.16
 Source Database: db_proyectofinal
-Date: 15/11/2016 19:16:47
+Date: 17/11/2016 22:28:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -108,8 +108,9 @@ DROP TABLE IF EXISTS `tiposmovimientos`;
 CREATE TABLE `tiposmovimientos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(150) DEFAULT NULL,
+  `direccion` char(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `unidades`
@@ -137,12 +138,14 @@ CREATE TABLE `usuarios` (
   `perfil` tinyint(4) DEFAULT NULL,
   `login` varchar(25) DEFAULT NULL,
   `passwd` varchar(32) DEFAULT NULL,
-  `fechaRegistro` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `usuarios_id` int(11) DEFAULT NULL,
+  `fechaCreacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `estatus` bit(1) DEFAULT b'1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Records 
 -- ----------------------------
-INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','2016-11-14 23:17:59',''), ('2','Florencia Quiroz','1','flor','098f6bcd4621d373cade4e832627b4f6','2016-11-15 19:16:39','');
+INSERT INTO `tiposmovimientos` VALUES ('1','Entrada','+'), ('2','Salida','-'), ('3','Devolución','+'), ('4','Merma','-');
+INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','1','2016-11-17 22:23:02','');
