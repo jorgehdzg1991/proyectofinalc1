@@ -52,6 +52,7 @@ class Unidades extends MY_Controller
     public function guardar()
     {
         $nombre = $_POST["nombre"];
+        $abreviatura = $_POST["abreviatura"];
         $usuarios_id = $this->session->userdata("auth")["id"];
 
         $result = $this->unidades_model->crear([
@@ -92,9 +93,11 @@ class Unidades extends MY_Controller
     {
         $id = $_POST["id"];
         $nombre = $_POST["nombre"];
+        $abreviatura = $_POST["abreviatura"];
 
         $result = $this->unidades_model->editar($id, [
-            "nombre" => $nombre
+            "nombre" => $nombre,
+            "abreviatura" => $abreviatura
         ]);
 
         if ($result == true) {
