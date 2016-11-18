@@ -33,7 +33,8 @@ class Usuarios extends MY_Controller
 
         $datos = [
             "titulo" => "Usuarios del sistema",
-            "usuarios" => $datosUsuarios
+            "usuarios" => $datosUsuarios,
+            "authId" => $this->session->userdata("auth")["id"]
         ];
 
         $this->CargarVista("usuarios/index", $datos);
@@ -71,26 +72,61 @@ class Usuarios extends MY_Controller
 
     public function editar($id)
     {
+        $datos = [
+            "titulo" => "Usuarios del sistema"
+        ];
 
+        $usuario = $this->usuarios_model->obtenerPorId($id);
+
+        if ($usuario != null) {
+            $datos["usuario"] = [
+                "id" => $id,
+                "nombre" => $usuario["nombre"],
+                "perfil" => $usuario["perfil"]
+            ];
+
+            $this->CargarVista("usuarios/editar", $datos);
+        } else {
+            $this->setMensajeFlash("Advertencia", "No se encontró el usuario que quería editar", "error");
+            redirect("usuarios/index");
+        }
     }
 
     public function actualizar()
     {
+        $id = $_POST["id"];
 
-    }
+        $datos = [
+            "nombre" => $_POST["nombre"],
+            "perfil" => $_POST["perfil"]
+        ];
 
-    public function cambiarPassword($id)
-    {
+        $result = $this->usuarios_model->editar($id, $datos);
 
-    }
-
-    public function actualizarPassword()
-    {
-
+        if ($result) {
+            $this->setMensajeFlash("Éxito", "Usuario actualizado correctamente", "success");
+            redirect("usuarios/index");
+        } else {
+            $this->setMensajeFlash("Error", "Ha ocurrido un error al actualizar el usuario. Intente nuevamente.", "error");
+            redirect("usuarios/editar/$id");
+        }
     }
 
     public function eliminar($id)
     {
+        if ($this->session->userdata("auth")["id"] == $id) {
+            $this->setMensajeFlash("Advertencia", "No puedes eliminar este usuario", "error");
+            redirect("usuarios/index");
+        }
 
+        $result = $this->usuarios_model->eliminar($id);
+
+        if ($result) {
+            $this->setMensajeFlash("Éxito", "Usuario eliminado correctamente", "success");
+        } else {
+            $this->setMensajeFlash("Error", "Ha ocurrido un error al eliminar el usuario. Intente nuevamente.", "error");
+        }
+
+        redirect("usuarios/index");
     }
 }

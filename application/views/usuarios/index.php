@@ -38,6 +38,13 @@
                             <?php
                             if (count($usuarios) > 0) {
                                 foreach ($usuarios as $usuario) {
+                                    $accionEliminar = $authId != $usuario["id"] ? '
+                                    <a href="javascript: eliminarUsuario(\'' . site_url("usuarios/eliminar/{$usuario["id"]}") . '\', \'' . $usuario["nombre"] . '\');"
+                                       class="btn btn-danger btn-sm"
+                                       title="Eliminar usuario">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>' : '';
+
                                     echo '
                                     <tr>
                                         <td>' . $usuario["id"] . '</td>
@@ -52,16 +59,7 @@
                                                title="Editar usuario">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
-                                            <a href="' . site_url("usuarios/cambiarPassword/{$usuario["id"]}") . '"
-                                               class="btn btn-default btn-sm"
-                                               title="Cambiar contraseña">
-                                                <i class="fa fa-key"></i>
-                                            </a>
-                                            <a href="javascript: eliminarUsuario(\'' . site_url("usuarios/eliminar/{$usuario["id"]}") . '\', \'' . $usuario["nombre"] . '\');"
-                                               class="btn btn-danger btn-sm"
-                                               title="Eliminar usuario">
-                                                <i class="fa fa-trash-o"></i>
-                                            </a>
+                                            ' . $accionEliminar . '
                                         </td>
                                     </tr>';
                                 }

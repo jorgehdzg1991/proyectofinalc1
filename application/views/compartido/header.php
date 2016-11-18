@@ -25,6 +25,8 @@
 
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
 
+    <script type='text/javascript' src='<?php echo base_url("assets/js/jquery-1.10.2.min.js") ?>'></script>
+
     <style>
         .panel-primary .panel-heading {
             background-color: #50dfab !important;

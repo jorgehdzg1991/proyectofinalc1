@@ -92,14 +92,26 @@
 </div>
 
 <script>
+    $(document).ready(function () {
+        $("#frmCrearUsuario").keypress(function(e) {
+            if(e.which == 13) {
+                guardarNuevoUsuario();
+            }
+        });
+
+        $("#cmbPerfil").click(function () {
+            $("#fgrPerfil").removeClass('has-error');
+            $("#fgrPerfil .help-block").css('display', 'none');
+        });
+
+        $("#txtPassword, #txtRepassword").click(function () {
+            $("#fgrPassword").removeClass('has-error');
+            $("#fgrPassword .help-block").css('display', 'none');
+            $("#fgrRepassword").removeClass('has-error');
+        });
+    });
+
     function guardarNuevoUsuario() {
-        $("#fgrPerfil").removeClass('has-error');
-        $("#fgrPerfil .help-block").css('display', 'none');
-
-        $("#fgrPassword").removeClass('has-error');
-        $("#fgrPassword .help-block").css('display', 'none');
-        $("#fgrRepassword").removeClass('has-error');
-
         var perfil = $("#cmbPerfil").val();
         var password = $("#txtPassword").val();
         var repassword = $("#txtRepassword").val();

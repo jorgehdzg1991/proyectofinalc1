@@ -20,7 +20,6 @@
     <script type="text/javascript">!window.jQuery.ui && document.write(unescape('%3Cscript src="assets/js/jqueryui-1.10.3.min.js'))</script>
     -->
 
-    <script type='text/javascript' src='<?php echo base_url("assets/js/jquery-1.10.2.min.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/js/jqueryui-1.10.3.min.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/js/bootstrap.min.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/js/enquire.js") ?>'></script>

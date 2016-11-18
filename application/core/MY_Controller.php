@@ -1,13 +1,13 @@
 <?php
 
-class MY_Controller extends CI_Controller
+abstract class MY_Controller extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
     }
 
-    protected function CargarVista($nombreVista, $datos = null)
+    final protected function CargarVista($nombreVista, $datos = null)
     {
         $mensajeFlash = $this->getMensajeFlash();
 
@@ -34,12 +34,12 @@ class MY_Controller extends CI_Controller
         $this->load->view("compartido/footer");
     }
 
-    protected function ValidarSesion()
+    final protected function ValidarSesion()
     {
         return $this->session->userdata("auth") ? true : false;
     }
 
-    protected function setMensajeFlash($titulo, $mensaje, $tipo) {
+    final protected function setMensajeFlash($titulo, $mensaje, $tipo) {
         $mensajeFlash = [
             "title" => $titulo,
             "text" => $mensaje,
@@ -50,12 +50,12 @@ class MY_Controller extends CI_Controller
         $this->session->set_userdata(["mensajeFlash" => $mensajeFlash]);
     }
 
-    protected function getMensajeFlash()
+    final protected function getMensajeFlash()
     {
         return $this->session->userdata("mensajeFlash");
     }
 
-    protected function unsetMensajeFlash()
+    final protected function unsetMensajeFlash()
     {
         $this->session->unset_userdata("mensajeFlash");
     }
