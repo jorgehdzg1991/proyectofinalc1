@@ -46,8 +46,9 @@
                                             <a href="' . site_url("marcas/editar/{$marca["id"]}") . '" class="btn btn-default btn-sm" title="Editar marca">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
-                                            <a href="javascript: eliminarMarca(\'' . site_url("marcas/eliminar/{$marca["id"]}") . '\', \'' . $marca["nombre"] . '\');" class="btn btn-default btn-sm" title="Eliminar marca">
-                                                <i class="fa fa-times"></i>
+                                            <a href="javascript: eliminarMarca(\'' . site_url("marcas/eliminar/{$marca["id"]}") . '\', \'' . $marca["nombre"] . '\');"
+                                               class="btn btn-danger btn-sm" title="Eliminar marca">
+                                                <i class="fa fa-trash-o"></i>
                                             </a>
                                         </td>
                                     </tr>';

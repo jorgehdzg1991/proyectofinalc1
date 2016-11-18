@@ -39,36 +39,41 @@
                             if (count($usuarios) > 0) {
                                 foreach ($usuarios as $usuario) {
                                     echo '
-                                        <tr>
-                                            <td>' . $usuario["id"] . '</td>
-                                            <td>' . $usuario["nombre"] . '</td>
-                                            <td>' . $usuario["login"] . '</td>
-                                            <td>' . $usuario["perfil"] . '</td>
-                                            <td>' . $usuario["usuarioCreador"] . '</td>
-                                            <td>' . $usuario["fechaCreacion"] . '</td>
-                                            <td>
-                                                <a href="' . site_url("usuarios/editar/{$usuario["id"]}") . '"
-                                                   class="btn btn-default btn-sm"
-                                                   title="Editar usuario">
-                                                    <i class="fa fa-pencil"></i>
-                                                </a>
-                                                <a href="javascript: eliminarUsuario(\'' . site_url("usuarios/eliminar/{$usuario["id"]}") . '\', \'' . $usuario["nombre"] . '\');"
-                                                   class="btn btn-default btn-sm"
-                                                   title="Eliminar usuario">
-                                                    <i class="fa fa-times"></i>
-                                                </a>
-                                            </td>
-                                        </tr>';
+                                    <tr>
+                                        <td>' . $usuario["id"] . '</td>
+                                        <td>' . $usuario["nombre"] . '</td>
+                                        <td>' . $usuario["login"] . '</td>
+                                        <td>' . $usuario["perfil"] . '</td>
+                                        <td>' . $usuario["usuarioCreador"] . '</td>
+                                        <td>' . $usuario["fechaCreacion"] . '</td>
+                                        <td>
+                                            <a href="' . site_url("usuarios/editar/{$usuario["id"]}") . '"
+                                               class="btn btn-default btn-sm"
+                                               title="Editar usuario">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="' . site_url("usuarios/cambiarPassword/{$usuario["id"]}") . '"
+                                               class="btn btn-default btn-sm"
+                                               title="Cambiar contraseña">
+                                                <i class="fa fa-key"></i>
+                                            </a>
+                                            <a href="javascript: eliminarUsuario(\'' . site_url("usuarios/eliminar/{$usuario["id"]}") . '\', \'' . $usuario["nombre"] . '\');"
+                                               class="btn btn-danger btn-sm"
+                                               title="Eliminar usuario">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </td>
+                                    </tr>';
                                 }
                             } else {
                                 echo '
-                                    <tr>
-                                        <td colspan="5">
-                                            Actualmente no hay usuarios registrados en el sistema. Haz click en el
-                                            botón de abajo para crear uno nuevo.<br><br>
-                                            <a href="' . site_url("usuarios/crear") . '" class="btn btn-primary">Crear un usuario ahora</a>
-                                        </td>
-                                    </tr>';
+                                <tr>
+                                    <td colspan="5">
+                                        Actualmente no hay usuarios registrados en el sistema. Haz click en el
+                                        botón de abajo para crear uno nuevo.<br><br>
+                                        <a href="' . site_url("usuarios/crear") . '" class="btn btn-primary">Crear un usuario ahora</a>
+                                    </td>
+                                </tr>';
                             }
                             ?>
                             </tbody>

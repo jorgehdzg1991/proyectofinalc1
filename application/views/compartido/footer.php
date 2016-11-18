@@ -37,6 +37,13 @@
     <script type='text/javascript' src='<?php echo base_url("assets/demo/demo.js") ?>'></script>
     <script>
         $(document).ready(function () {
+            $.fn.navegarElemento = function() {
+                $('html, body').animate({
+                    scrollTop: $(this).offset().top + 'px'
+                }, 'fast');
+                return this;
+            }
+
             if ($("#mensajeFlash").val() !== "") {
                 $.pnotify(JSON.parse($("#mensajeFlash").val()));
             }

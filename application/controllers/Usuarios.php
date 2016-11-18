@@ -38,4 +38,59 @@ class Usuarios extends MY_Controller
 
         $this->CargarVista("usuarios/index", $datos);
     }
+
+    public function crear()
+    {
+        $datos = [
+            "titulo" => "Usuarios del sistema"
+        ];
+
+        $this->CargarVista("usuarios/crear", $datos);
+    }
+
+    public function guardar()
+    {
+        $datos = [
+            "nombre" => $_POST["nombre"],
+            "perfil" => $_POST["perfil"],
+            "login" => $_POST["login"],
+            "passwd" => md5($_POST["password"]),
+            "usuarios_id" => $this->session->userdata("auth")["id"]
+        ];
+
+        $result = $this->usuarios_model->crear($datos);
+
+        if ($result) {
+            $this->setMensajeFlash("Éxito", "Usuario creado correctamente", "success");
+            redirect("usuarios/index");
+        } else {
+            $this->setMensajeFlash("Error", "Ha ocurrido un error al crear el usuario. Intente nuevamente.");
+            redirect("usuarios/crear");
+        }
+    }
+
+    public function editar($id)
+    {
+
+    }
+
+    public function actualizar()
+    {
+
+    }
+
+    public function cambiarPassword($id)
+    {
+
+    }
+
+    public function actualizarPassword()
+    {
+
+    }
+
+    public function eliminar($id)
+    {
+
+    }
 }

@@ -49,9 +49,9 @@
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                             <a href="javascript: eliminarAlmacen(\'' . site_url("almacenes/eliminar/{$almacen["id"]}") . '\', \'' . $almacen["nombre"] . '\');"
-                                               class="btn btn-default btn-sm"
+                                               class="btn btn-danger btn-sm"
                                                title="Eliminar almacén">
-                                                <i class="fa fa-times"></i>
+                                                <i class="fa fa-trash-o"></i>
                                             </a>
                                         </td>
                                     </tr>';

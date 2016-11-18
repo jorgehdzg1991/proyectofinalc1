@@ -33,6 +33,10 @@
         .btn-primary {
             background-color: #50dfab !important;
         }
+
+        .btn-primary:hover {
+            background-color: #4dc390 !important;
+        }
     </style>
 </head>
 
