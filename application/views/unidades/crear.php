@@ -28,7 +28,7 @@
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="txtNombre" name="nombre" placeholder="Escribe el nombre de la unidad">
                             </div>
-                        </div
+                        </div>
                         <div class="form-group">
                             <label for="txtAbreviatura" class="control-label col-sm-3">Abreviatura</label>
                             <div class="col-sm-6">

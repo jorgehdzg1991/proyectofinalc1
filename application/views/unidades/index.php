@@ -61,7 +61,7 @@
                             } else {
                                 echo '
                                 <tr>
-                                    <td colspan="5">
+                                    <td colspan="6">
                                         No se encontraron registros en tu catálogo de unidades. 
                                         Si deseas crear una ahora, haz click en el botón de abajo.<br><br>
                                         <a href="' . site_url("unidades/crear") . '" class="btn btn-primary">Crear una unidad ahora</a>
