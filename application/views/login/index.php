@@ -13,8 +13,26 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
+
+    <style>
+        .panel-primary .panel-heading {
+            background-color: #50dfab !important;
+        }
+
+        .panel-primary .panel-body {
+            border-top: 2px solid #50dfab !important;
+        }
+
+        .btn-primary {
+            background-color: #50dfab !important;
+        }
+
+        .btn-primary:hover {
+            background-color: #4dc390 !important;
+        }
+    </style>
 </head>
-<body class="focusedform">
+<body class="focusedform" style="background-color: #8c9998 !important;">
 
 <div class="verticalcenter">
     <a href="index.htm"><img src="<?php echo base_url("assets/img/logo-big.png") ?>" alt="Logo" class="brand" /></a>
