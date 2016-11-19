@@ -53,7 +53,18 @@ class Rightbarmenu
             "Movimientos" => [
                 "link" => "movimientos/index",
                 "icono" => "fa fa-exchange",
-                "activo" => false
+                "activo" => false,
+                "nodos" => [
+                    "Entradas" => [
+                        "link" => "movimientos/entradas"
+                    ],
+                    "Salidas" => [
+                        "link" => "movimientos/salidas"
+                    ],
+                    "Ajustes de inventario" => [
+                        "link" => "movimientos/ajustes"
+                    ]
+                ]
             ],
             "Reportes" => [
                 "link" => "reportes/index",
