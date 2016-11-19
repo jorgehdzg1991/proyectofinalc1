@@ -66,13 +66,51 @@ class Categorias extends MY_Controller
         redirect("categorias/index");
     }
 
-    public function editar()
+    public function editar($id)
     {
+        $datos = [
+            "titulo" => "Categorias"
+        ];
 
+        $categorias = $this->categorias_model->obtenerPorId($id);
+
+        if ($categorias != null) {
+            $datos["categorias"] = $categorias;
+            $this->CargarVista("categorias/editar", $datos);
+        } else {
+            $this->setMensajeFlash("Advertencia", "No se encontró la categorias que quería editar", "error");
+            redirect("categorias/index");
+        }
     }
 
-    public function eliminar()
+    public function actualizar()
     {
+        $id = $_POST["id"];
+        $nombre = $_POST["nombre"];
 
+        $result = $this->categorias_model->editar($id, [
+            "nombre" => $nombre
+        ]);
+
+        if ($result == true) {
+            $this->setMensajeFlash("Éxito", "Categoria actualizada correctamente", "success");
+            redirect("categorias/index");
+        } else {
+            $this->setMensajeFlash("Error", "No se pudo actualizar la categoria. Intente nuevamente.", "error");
+            redirect("categorias/editar/$id");
+        }
+    }
+
+    public function eliminar($id)
+    {
+        $result = $this->categorias_model->eliminar($id);
+
+        if ($result == true) {
+            $this->setMensajeFlash("Éxito", "Categoria eliminada correctamente", "success");
+        } else {
+            $this->setMensajeFlash("Error", "No se pudo eliminar la Categoria. Intente nuevamente.", "error");
+        }
+
+        redirect("categorias/index");
     }
 }
