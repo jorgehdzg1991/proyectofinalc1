@@ -67,7 +67,8 @@
                 </li>
                 <li class="userlinks">
                     <ul class="dropdown-menu">
-                        <li><a href="#">Editar perfil <i class="pull-right fa fa-pencil"></i></a></li>
+                        <li><a href="<?php echo site_url("perfil/index") ?>">Ver Perfil <i class="fa fa-address-card" aria-hidden="true"></i></a></li>
+                        <li><a href="<?php echo site_url("perfil/editar") ?>">Editar perfil <i class="pull-right fa fa-pencil"></i></a></li>
                         <li><a href="#">Configuración <i class="pull-right fa fa-cog"></i></a></li>
                         <li><a href="#">Ayuda <i class="pull-right fa fa-question-circle"></i></a></li>
                         <li class="divider"></li>
