@@ -35,7 +35,7 @@
 <body class="focusedform" style="background-color: #8c9998 !important;">
 
 <div class="verticalcenter">
-    <a href="index.htm"><img src="<?php echo base_url("assets/img/logo-big.png") ?>" alt="Logo" class="brand" /></a>
+    <a href="https://www.matatenamx.com/"><img src="<?php echo base_url("assets/img/logo-big.png") ?>" alt="Logo" class="brand" /></a>
     <div class="panel panel-primary">
         <?php echo form_open("login/start", ["style" => "margin-bottom: 0px !important;"]) ?>
             <div class="panel-body">

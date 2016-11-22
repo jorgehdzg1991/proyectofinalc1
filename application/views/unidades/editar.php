@@ -35,7 +35,6 @@
                                    value="<?php echo $unidad["nombre"] ?>">
                         </div>
                     </div>
-                    <input type="hidden" name="id" value="<?php echo $unidad["id"] ?>">
                     <div class="form-group">
                         <label for="txtAbreviatura" class="control-label col-sm-3">Abreviatura</label>
                         <div class="col-sm-6">
