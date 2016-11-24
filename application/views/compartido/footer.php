@@ -28,6 +28,7 @@
     <script type='text/javascript' src='<?php echo base_url("assets/plugins/codeprettifier/prettify.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/plugins/easypiechart/jquery.easypiechart.min.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/plugins/sparklines/jquery.sparklines.min.js") ?>'></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/plugins/form-select2/select2.min.js") ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/plugins/pines-notify/jquery.pnotify.min.js") ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/plugins/bootbox/bootbox.min.js") ?>"></script>
     <script type='text/javascript' src='<?php echo base_url("assets/plugins/form-toggle/toggle.min.js") ?>'></script>
@@ -35,6 +36,8 @@
     <script type='text/javascript' src='<?php echo base_url("assets/js/application.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/demo/demo.js") ?>'></script>
     <script>
+        $(".select2-element").select2();
+
         $(document).ready(function () {
             $.fn.navegarElemento = function() {
                 $('html, body').animate({

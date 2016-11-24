@@ -38,41 +38,50 @@
                     <div class="form-group">
                         <label for="txtDescripcion" class="control-label col-sm-3">Descripcion</label>
                         <div class="col-sm-6">
-                            <input type="text"
-                                   class="form-control"
-                                   id="txtDescripcion"
-                                   name="descripcion"
-                                   placeholder="Escribe la descrpcion del producto"
-                                   value="<?php echo $producto["descripcion"] ?>">
+                            <textarea name="descripcion"
+                                      id="txtDescripcion"
+                                      class="form-control"
+                                      cols="30"
+                                      rows="5"
+                                      placeholder="Escribe la descrpcion del producto"><?php echo $producto["descripcion"] ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Categoria</label>
+                        <label for="txtCategoria" class="control-label col-sm-3">Categoria</label>
                         <div class="col-sm-6">
-                            <select class="form-control" id="source">
-                                <optgroup label="Categorias">
-                                    <option value="<?php echo $producto["categorias_id"] ?>"</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                     <div class="form-group">
-                        <label class="control-label col-sm-3">Unidad</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" id="source">
-                                <optgroup label="Unidades">
-                                    <option value="<?php echo $producto["unidades_id"] ?>"</option>
-                                </optgroup>
+                            <select class="form-control" id="txtCategorias" name="categoria">
+                                <?php
+                                foreach ($categorias as $categoria) {
+                                    $selected = $categorias["id"] == $producto["categorias_id"] ? ' selected' : '';
+                                    echo '<option value="' . $categoria["id"] . '"' . $selected . '>' . $categoria["nombre"] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Marca</label>
+                        <label for="txtUnidad" class="control-label col-sm-3">Unidad</label>
                         <div class="col-sm-6">
-                            <select class="form-control" id="source">
-                                <optgroup label="Marcas">
-                                    <option value="<?php echo $producto["marcas_id"] ?>"</option>
-                                </optgroup>
+                            <select class="form-control" id="txtUnidades" name="unidad">
+                                <?php
+                                foreach ($unidades as $unidad) {
+                                    $selected = $unidad["id"] == $producto["unidades_id"] ? ' selected' : '';
+                                    echo '<option value="' . $unidad["id"] . '"' . $selected . '>' . $unidad["nombre"] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtMarca" class="control-label col-sm-3">Marca</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="txtMarcas" name="marca">
+                                <?php
+                                foreach ($marcas as $marca) {
+                                    $selected = $marca["id"] == $producto["marcas_id"] ? ' selected' : '';
+                                    echo '<option value="' . $marca["id"] . '"' . $selected . '>' . $marca["nombre"] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>

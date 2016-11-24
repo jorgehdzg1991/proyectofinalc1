@@ -19,6 +19,7 @@
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/form-select2/select2.css") ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/pines-notify/jquery.pnotify.default.css") ?>">
     <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/codeprettifier/prettify.css") ?>' />
     <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/form-toggle/toggles.css") ?>' />

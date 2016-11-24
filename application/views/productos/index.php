@@ -29,8 +29,8 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Categoria</th>
-                                <th>Unidad</th>
                                 <th>Marca</th>
+                                <th>Unidad</th>
                                 <th>Creado por</th>
                                 <th>Fecha de creación</th>
                                 <th>Acciones</th>
@@ -45,9 +45,9 @@
                                         <td>' . $producto["id"] . '</td>
                                         <td>' . $producto["nombre"] . '</td>
                                         <td>' . $producto["descripcion"] . '</td>
-                                        <td>' . $producto["categorias_id"] . '</td>
-                                        <td>' . $producto["unidades_id"] . '</td>
-                                        <td>' . $producto["marcas_id"] . '</td>
+                                        <td>' . $producto["categoria"] . '</td>
+                                        <td>' . $producto["marca"] . '</td>
+                                        <td>' . $producto["unidad"] . '</td>
                                         <td>' . $producto["usuario"] . '</td>
                                         <td>' . $producto["fecha"] . '</td>
                                         <td>
@@ -85,14 +85,14 @@
     function eliminarProducto(url, nombreProducto) {
         bootbox.confirm({
             title: 'Eliminar producto: ' + nombreProducto,
-            message: '¿Realmente deseas eliminar esta producto?',
+            message: '¿Realmente deseas eliminar esto producto?',
             buttons: {
                 'cancel': {
                     label: 'No realmente',
                     className: 'btn-default'
                 },
                 'confirm': {
-                    label: 'Si, elimínala',
+                    label: 'Si, elimínalo',
                     className: 'btn-danger'
                 }
             },
