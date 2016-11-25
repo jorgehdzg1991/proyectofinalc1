@@ -119,10 +119,16 @@ class Productos extends MY_Controller
         $id = $_POST["id"];
         $nombre = $_POST["nombre"];
         $descripcion = $_POST["descripcion"];
+        $categoria = $_POST["categoria"];
+        $marca = $_POST["marca"];
+        $unidad = $_POST["unidad"];
 
         $result = $this->productos_model->editar($id, [
             "nombre" => $nombre,
-            "descripcion" => $descripcion
+            "descripcion" => $descripcion,
+            "categorias_id" => $categoria,
+            "marcas_id" => $marca,
+            "unidades_id" => $unidad
         ]);
 
         if ($result == true) {

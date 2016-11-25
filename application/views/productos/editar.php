@@ -18,13 +18,13 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-primary">
-                <?php echo form_open("productos/actualizar", ["class" => "form-horizontal"]) ?>
+                <?php echo form_open("productos/actualizar", ["class" => "form-horizontal", "id" => "frmActualizarProducto"]) ?>
                 <div class="panel-heading">
                     <h4>Editar producto: <?php echo $producto["nombre"] ?></h4>
                 </div>
                 <div class="panel-body">
                     <input type="hidden" name="id" value="<?php echo $producto["id"] ?>">
-                    <div class="form-group">
+                    <div id="frgNombre" class="form-group">
                         <label for="txtNombre" class="control-label col-sm-3">Nombre</label>
                         <div class="col-sm-6">
                             <input type="text"
@@ -34,8 +34,13 @@
                                    placeholder="Escribe el nombre del producto"
                                    value="<?php echo $producto["nombre"] ?>">
                         </div>
+                        <div class="col-sm-3">
+                            <p class="help-block" style="display: none;">
+                                <i class="fa fa-times"></i> El nombre no puede ser vacío
+                            </p>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div id="frgDescripcion" class="form-group">
                         <label for="txtDescripcion" class="control-label col-sm-3">Descripcion</label>
                         <div class="col-sm-6">
                             <textarea name="descripcion"
@@ -45,8 +50,13 @@
                                       rows="5"
                                       placeholder="Escribe la descrpcion del producto"><?php echo $producto["descripcion"] ?></textarea>
                         </div>
+                        <div class="col-sm-3">
+                            <p class="help-block" style="display: none;">
+                                <i class="fa fa-times"></i> La descripción no puede estar vacía
+                            </p>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div id="frgCategoria" class="form-group">
                         <label for="txtCategoria" class="control-label col-sm-3">Categoria</label>
                         <div class="col-sm-6">
                             <select class="form-control" id="txtCategorias" name="categoria">
@@ -58,21 +68,13 @@
                                 ?>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtUnidad" class="control-label col-sm-3">Unidad</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" id="txtUnidades" name="unidad">
-                                <?php
-                                foreach ($unidades as $unidad) {
-                                    $selected = $unidad["id"] == $producto["unidades_id"] ? ' selected' : '';
-                                    echo '<option value="' . $unidad["id"] . '"' . $selected . '>' . $unidad["nombre"] . '</option>';
-                                }
-                                ?>
-                            </select>
+                        <div class="col-sm-3">
+                            <p class="help-block" style="display: none;">
+                                <i class="fa fa-times"></i> Debe escoger una categoría
+                            </p>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div id="frgMarca" class="form-group">
                         <label for="txtMarca" class="control-label col-sm-3">Marca</label>
                         <div class="col-sm-6">
                             <select class="form-control" id="txtMarcas" name="marca">
@@ -84,13 +86,36 @@
                                 ?>
                             </select>
                         </div>
+                        <div class="col-sm-3">
+                            <p class="help-block" style="display: none;">
+                                <i class="fa fa-times"></i> Debe de escoger una marca
+                            </p>
+                        </div>
+                    </div>
+                    <div id="frgUnidad" class="form-group">
+                        <label for="txtUnidad" class="control-label col-sm-3">Unidad</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="txtUnidades" name="unidad">
+                                <?php
+                                foreach ($unidades as $unidad) {
+                                    $selected = $unidad["id"] == $producto["unidades_id"] ? ' selected' : '';
+                                    echo '<option value="' . $unidad["id"] . '"' . $selected . '>' . $unidad["nombre"] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <p class="help-block" style="display: none;">
+                                <i class="fa fa-times"></i> Debe escoger una unidad
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
                             <div class="btn-toolbar">
-                                <button class="btn-primary btn">Actualizar</button>
+                                <a href="javascript:actualizarProducto();" class="btn-primary btn">Actualizar</a>
                             </div>
                         </div>
                     </div>
@@ -100,3 +125,54 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#frmActualizarProducto").keypress(function(e) {
+            if(e.which == 13) {
+                actualizarProducto();
+            }
+        });
+
+        $("#txtNombre").click(function () {
+            $("#fgrNombre").removeClass('has-error');
+            $("#fgrNombre .help-block").css('display', 'none');
+        });
+
+        $("#txtDescripcion").click(function () {
+            $("#fgrDescripcion").removeClass('has-error');
+            $("#fgrDescripcion .help-block").css('display', 'none');
+        });
+    });
+
+    function actualizarProducto() {
+        $("#fgrNombre").removeClass('has-error');
+        $("#fgrDescripcion").removeClass('has-error');
+
+        $("#fgrNombre .help-block").css("display", "none");
+        $("#fgrDescripcion .help-block").css("display", "none");
+
+        var nombre = $("#txtNombre").val();
+        var descripcion = $("#txtDescripcion").val();
+
+        if (nombre === "") {
+            $("#fgrNombre").addClass('has-error');
+            $("#fgrNombre .help-block").css('display', 'block');
+
+            $("#fgrNombre").navegarElemento();
+
+            return;
+        }
+
+        if (descripcion === "") {
+            $("#fgrDescripcion").addClass('has-error');
+            $("#fgrDescripcion .help-block").css('display', 'block');
+
+            $("#fgrDescripcion").navegarElemento();
+
+            return;
+        }
+
+        $("#frmActualizarProducto").submit();
+    }
+</script>
