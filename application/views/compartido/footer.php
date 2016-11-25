@@ -49,6 +49,12 @@
             if ($("#mensajeFlash").val() !== "") {
                 $.pnotify(JSON.parse($("#mensajeFlash").val()));
             }
+
+            var validarAbierto = $("#menuActivo").parent().hasClass("open");
+
+            if (!validarAbierto) {
+                $("#menuActivo").click();
+            }
         });
     </script>
 

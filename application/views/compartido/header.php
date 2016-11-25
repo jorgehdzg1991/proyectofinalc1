@@ -74,8 +74,9 @@
             <?php
             foreach ($menu as $nombreModulo => $datosModulo) {
                 $elemento = '
-                <li' . ($datosModulo["activo"] ? ' class="active"' : '') . '>
-                    <a href="' . (!isset($datosModulo["nodos"]) ? site_url($datosModulo["link"]) : 'javascript:;') . '">
+                    <li' . ($datosModulo["activo"] ? ' class="active"' : '') . '>
+                    <a ' . ($datosModulo["activo"] ? ' id="menuActivo"' : '') . '
+                        href="' . (!isset($datosModulo["nodos"]) ? site_url($datosModulo["link"]) : 'javascript:;') . '">
                         <i class="' . $datosModulo["icono"] . '"></i> <span>' . $nombreModulo . '</span>
                     </a>';
 
@@ -83,7 +84,12 @@
                     $elemento .= '<ul class="acc-menu">';
 
                     foreach ($datosModulo["nodos"] as $nombreNodo => $propiedades) {
-                        $elemento .= '<li><a href="' . site_url($propiedades["link"]) . '">' . $nombreNodo . '</a></li>';
+                        $elemento .= '
+                            <li' . ($propiedades["activo"] ? ' class="active"' : '') . '>
+                                <a href="' . site_url($propiedades["link"]) . '">
+                                    ' . $nombreNodo . '
+                                </a>
+                            </li>';
                     }
 
                     $elemento .= '</ul>';

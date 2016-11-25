@@ -15,11 +15,13 @@ class Rightbarmenu
                 "icono" => "fa fa-cogs",
                 "activo" => false,
                 "nodos" => [
-                    "Configuración general" => [
-                        "link" => "configuracion/index"
+                    "Configuración de temas" => [
+                        "link" => "configuracion/index",
+                        "activo" => false
                     ],
                     "Usuarios del sistema" => [
-                        "link" => "usuarios/index"
+                        "link" => "usuarios/index",
+                        "activo" => false
                     ]
                 ]
             ],
@@ -29,19 +31,24 @@ class Rightbarmenu
                 "activo" => false,
                 "nodos" => [
                     "Productos" => [
-                        "link" => "productos/index"
+                        "link" => "productos/index",
+                        "activo" => false
                     ],
                     "Categorías de producto" => [
-                        "link" => "categorias/index"
+                        "link" => "categorias/index",
+                        "activo" => false
                     ],
                     "Unidades de medición" => [
-                        "link" => "unidades/index"
+                        "link" => "unidades/index",
+                        "activo" => false
                     ],
                     "Marcas" => [
-                        "link" => "marcas/index"
+                        "link" => "marcas/index",
+                        "activo" => false
                     ],
                     "Almacenes" => [
-                        "link" => "almacenes/index"
+                        "link" => "almacenes/index",
+                        "activo" => false
                     ]
                 ]
             ],
@@ -56,13 +63,16 @@ class Rightbarmenu
                 "activo" => false,
                 "nodos" => [
                     "Entradas" => [
-                        "link" => "movimientos/entradas"
+                        "link" => "movimientos/entradas",
+                        "activo" => false
                     ],
                     "Salidas" => [
-                        "link" => "movimientos/salidas"
+                        "link" => "movimientos/salidas",
+                        "activo" => false
                     ],
                     "Ajustes de inventario" => [
-                        "link" => "movimientos/ajustes"
+                        "link" => "movimientos/ajustes",
+                        "activo" => false
                     ]
                 ]
             ],
@@ -77,9 +87,21 @@ class Rightbarmenu
             unset($menu["Configuración del sistema"]);
         }
 
-        foreach ($menu as $elemento => $valor) {
-            if ($valor["link"] == $moduloActual) {
-                $menu[$elemento]["activo"] = true;
+        foreach ($menu as $elemento => $propiedades) {
+            if (isset($propiedades["nodos"])) {
+                foreach ($propiedades["nodos"] as $subelemento => $propiedadesSubelemento) {
+                    $controlador = explode("/", $propiedadesSubelemento["link"])[0];
+                    $controladorActual = explode("/", $moduloActual)[0];
+
+                    if ($controlador == $controladorActual) {
+                        $menu[$elemento]["activo"] = true;
+                        $menu[$elemento]["nodos"][$subelemento]["activo"] = true;
+                    }
+                }
+            } else {
+                if ($propiedades["link"] == $moduloActual) {
+                    $menu[$elemento]["activo"] = true;
+                }
             }
         }
 
