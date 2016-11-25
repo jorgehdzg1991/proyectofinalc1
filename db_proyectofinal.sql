@@ -2,7 +2,7 @@
 MySQL Backup
 Source Server Version: 10.1.16
 Source Database: db_proyectofinal
-Date: 24/11/2016 22:07:03
+Date: 24/11/2016 22:57:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,14 +43,32 @@ CREATE TABLE `categorias` (
 DROP TABLE IF EXISTS `configuraciones`;
 CREATE TABLE `configuraciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `header` varchar(25) DEFAULT NULL,
-  `sidebar` varchar(25) DEFAULT NULL,
-  `tema` varchar(25) DEFAULT NULL,
+  `header_hojasestilos_id` int(11) DEFAULT NULL,
+  `sidebar_hojasestilos_id` int(11) DEFAULT NULL,
+  `tema_hojasestilos_id` int(11) DEFAULT NULL,
   `usuarios_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_configuraciones_usuarios` (`usuarios_id`),
+  KEY `FK_configuraciones_hojasestilos_header` (`header_hojasestilos_id`),
+  KEY `FK_configuraciones_hojasestilos_sidebar` (`sidebar_hojasestilos_id`),
+  KEY `FK_configuraciones_hojasestilos_tema` (`tema_hojasestilos_id`),
+  CONSTRAINT `FK_configuraciones_hojasestilos_header` FOREIGN KEY (`header_hojasestilos_id`) REFERENCES `hojasestilos` (`id`),
+  CONSTRAINT `FK_configuraciones_hojasestilos_sidebar` FOREIGN KEY (`sidebar_hojasestilos_id`) REFERENCES `hojasestilos` (`id`),
+  CONSTRAINT `FK_configuraciones_hojasestilos_tema` FOREIGN KEY (`tema_hojasestilos_id`) REFERENCES `hojasestilos` (`id`),
   CONSTRAINT `FK_configuraciones_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `hojasestilos`
+-- ----------------------------
+DROP TABLE IF EXISTS `hojasestilos`;
+CREATE TABLE `hojasestilos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `valor` varchar(50) DEFAULT NULL,
+  `tipo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `marcas`
@@ -162,6 +180,7 @@ CREATE TABLE `usuarios` (
 -- ----------------------------
 --  Records 
 -- ----------------------------
-INSERT INTO `configuraciones` VALUES ('1','default','sidebar-green','default','1');
+INSERT INTO `configuraciones` VALUES ('1','11','6','9','1');
+INSERT INTO `hojasestilos` VALUES ('1','Negro','header-black','header'), ('2','Azul','header-blue','header'), ('3','Verde','header-green','header'), ('4','Rojo','header-red','header'), ('5','Acero','header-steel','header'), ('6','Verde','sidebar-green','sidebar'), ('7','Lavanda','sidebar-lavender','sidebar'), ('8','Acero','sidebar-steel','sidebar'), ('9','Verde','verde','tema'), ('10','Daltonico','daltonico','tema'), ('11','Default','default','header');
 INSERT INTO `tiposmovimientos` VALUES ('1','Entrada','+'), ('2','Salida','-'), ('3','Devolución','+'), ('4','Merma','-');
-INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','1','2016-11-24 22:06:51','');
+INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','1','2016-11-24 22:56:55','');

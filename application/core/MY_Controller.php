@@ -7,6 +7,7 @@ abstract class MY_Controller extends CI_Controller
         parent::__construct();
 
         $this->load->model("configuraciones_model");
+        $this->load->model("hojasestilos_model");
     }
 
     final protected function CargarVista($nombreVista, $datos = null)
@@ -25,7 +26,17 @@ abstract class MY_Controller extends CI_Controller
 
         $datos["auth"] = $this->session->userdata("auth");
 
-        $datos["configuracion"] = $this->configuraciones_model->obtenerPorUsuario($datos["auth"]["id"]);
+        $configuracion = $this->configuraciones_model->obtenerPorUsuario($datos["auth"]["id"]);
+
+        $estiloHeader = $this->hojasestilos_model->obtenerPorId($configuracion["header_hojasestilos_id"]);
+        $estiloSidebar = $this->hojasestilos_model->obtenerPorId($configuracion["sidebar_hojasestilos_id"]);
+        $estiloTema = $this->hojasestilos_model->obtenerPorId($configuracion["tema_hojasestilos_id"]);
+
+        $datos["configuracion"] = [
+            "header" => $estiloHeader["valor"],
+            "sidebar" => $estiloSidebar["valor"],
+            "tema" => $estiloTema["valor"]
+        ];
 
         $this->load->library("rightbarmenu");
 

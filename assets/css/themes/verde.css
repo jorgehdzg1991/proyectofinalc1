@@ -13,11 +13,3 @@
 .btn-primary:hover {
     background-color: #4dc390 !important;
 }
-
-#sidebar>li.active>a {
-    background-color: #50dfab !important;
-}
-
-#sidebar>li.active>i {
-    background-color: #50dfab !important;
-}
