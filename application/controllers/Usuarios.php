@@ -12,6 +12,7 @@ class Usuarios extends MY_Controller
         }
 
         $this->load->model("usuarios_model");
+        $this->load->model("configuraciones_model");
     }
 
     public function index()
@@ -66,6 +67,15 @@ class Usuarios extends MY_Controller
         $result = $this->usuarios_model->crear($datos);
 
         if ($result) {
+            $configuracion = [
+                "header" => "default",
+                "sidebar" => "sidebar-green",
+                "tema" => "default",
+                "usuarios_id" => $this->db->insert_id()
+            ];
+
+            $this->configuraciones_model->crear($configuracion);
+
             $this->setMensajeFlash("Éxito", "Usuario creado correctamente", "success");
             redirect("usuarios/index");
         } else {

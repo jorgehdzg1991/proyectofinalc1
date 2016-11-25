@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.min.css?=113") ?>">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 
-    <link href='<?php echo base_url("assets/demo/variations/sidebar-green.css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
-    <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
-    <link href="<?php echo base_url("assets/css/themes/default.css") ?>" rel="stylesheet" type="text/css">
+    <link href='<?php echo base_url("assets/demo/variations/" . $configuracion["sidebar"] . ".css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
+    <link href='<?php echo base_url("assets/demo/variations/" . $configuracion["header"] . ".css") ?>' rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
+    <link href="<?php echo base_url("assets/css/themes/" . $configuracion["tema"] . ".css") ?>" rel="stylesheet" type="text/css">
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
 
@@ -44,7 +44,7 @@
             </a>
             <ul class="dropdown-menu userinfo arrow">
                 <li class="username">
-                    <a href="#">
+                    <a href="<?php echo site_url("perfil/index") ?>">
                         <div class="pull-left">
                             <h5>¡Hola <?php echo explode(" ", $auth["nombre"])[0] ?>!</h5>
                             <small>Iniciaste sesión como <span><?php echo $auth["login"] ?></span></small>
@@ -53,9 +53,9 @@
                 </li>
                 <li class="userlinks">
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo site_url("perfil/index") ?>">Ver Perfil <i class="fa fa-address-card" aria-hidden="true"></i></a></li>
+                        <li><a href="<?php echo site_url("perfil/index") ?>">Ver Perfil <i class="pull-right fa fa-user" aria-hidden="true"></i></a></li>
                         <li><a href="<?php echo site_url("perfil/editar") ?>">Editar perfil <i class="pull-right fa fa-pencil"></i></a></li>
-                        <li><a href="#">Configuración <i class="pull-right fa fa-cog"></i></a></li>
+                        <li><a href="<?php echo site_url("configuracion/index") ?>">Configuración <i class="pull-right fa fa-cog"></i></a></li>
                         <li><a href="#">Ayuda <i class="pull-right fa fa-question-circle"></i></a></li>
                         <li class="divider"></li>
                         <li><a href="<?php echo site_url("login/end") ?>" class="text-right">Cerrar sesión</a></li>
@@ -74,11 +74,10 @@
             <?php
             foreach ($menu as $nombreModulo => $datosModulo) {
                 $elemento = '
-                    <li' . ($datosModulo["activo"] ? ' class="active"' : '') . '>
-                    <a ' . ($datosModulo["activo"] ? ' id="menuActivo"' : '') . '
-                        href="' . (!isset($datosModulo["nodos"]) ? site_url($datosModulo["link"]) : 'javascript:;') . '">
-                        <i class="' . $datosModulo["icono"] . '"></i> <span>' . $nombreModulo . '</span>
-                    </a>';
+                    <li' . ($datosModulo["activo"] ? ' class="open active" id="elementoActivo"' : '') . '>
+                        <a href="' . (!isset($datosModulo["nodos"]) ? site_url($datosModulo["link"]) : 'javascript:;') . '">
+                            <i class="' . $datosModulo["icono"] . '"></i> <span>' . $nombreModulo . '</span>
+                        </a>';
 
                 if (isset($datosModulo["nodos"])) {
                     $elemento .= '<ul class="acc-menu">';
