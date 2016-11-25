@@ -12,10 +12,9 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.min.css?=113") ?>">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 
-
     <link href='<?php echo base_url("assets/demo/variations/sidebar-green.css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
-
     <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
+    <link href="<?php echo base_url("assets/css/themes/default.css") ?>" rel="stylesheet" type="text/css">
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
 
@@ -27,20 +26,6 @@
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
 
     <script type='text/javascript' src='<?php echo base_url("assets/js/jquery-1.10.2.min.js") ?>'></script>
-
-    <style>
-        .panel-primary .panel-heading {
-            background-color: #50dfab !important;
-        }
-
-        .btn-primary {
-            background-color: #50dfab !important;
-        }
-
-        .btn-primary:hover {
-            background-color: #4dc390 !important;
-        }
-    </style>
 </head>
 
 <body class="">

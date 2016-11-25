@@ -17,23 +17,7 @@
 
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
 
-    <style>
-        .panel-primary .panel-heading {
-            background-color: #50dfab !important;
-        }
-
-        .panel-primary .panel-body {
-            border-top: 2px solid #50dfab !important;
-        }
-
-        .btn-primary {
-            background-color: #50dfab !important;
-        }
-
-        .btn-primary:hover {
-            background-color: #4dc390 !important;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/themes/default.css") ?>">
 </head>
 <body class="focusedform" style="background-color: #8c9998 !important;">
 <input type="hidden" id="mensajeFlash" value='<?php echo isset($mensajeFlash) ? json_encode($mensajeFlash) : '' ?>'>
