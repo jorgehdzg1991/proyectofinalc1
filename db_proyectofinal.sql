@@ -2,7 +2,7 @@
 MySQL Backup
 Source Server Version: 10.1.16
 Source Database: db_proyectofinal
-Date: 17/11/2016 22:28:14
+Date: 24/11/2016 22:07:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,6 +36,21 @@ CREATE TABLE `categorias` (
   KEY `FK_categorias_usuarios` (`usuarios_id`),
   CONSTRAINT `FK_categorias_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+--  Table structure for `configuraciones`
+-- ----------------------------
+DROP TABLE IF EXISTS `configuraciones`;
+CREATE TABLE `configuraciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `header` varchar(25) DEFAULT NULL,
+  `sidebar` varchar(25) DEFAULT NULL,
+  `tema` varchar(25) DEFAULT NULL,
+  `usuarios_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_configuraciones_usuarios` (`usuarios_id`),
+  CONSTRAINT `FK_configuraciones_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `marcas`
@@ -147,5 +162,6 @@ CREATE TABLE `usuarios` (
 -- ----------------------------
 --  Records 
 -- ----------------------------
+INSERT INTO `configuraciones` VALUES ('1','default','sidebar-green','default','1');
 INSERT INTO `tiposmovimientos` VALUES ('1','Entrada','+'), ('2','Salida','-'), ('3','Devolución','+'), ('4','Merma','-');
-INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','1','2016-11-17 22:23:02','');
+INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','1','2016-11-24 22:06:51','');
