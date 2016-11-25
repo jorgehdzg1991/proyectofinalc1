@@ -17,7 +17,7 @@ abstract class MY_Controller extends CI_Controller
         }
 
         if ($nombreVista == "login/index") {
-            $this->load->view($nombreVista);
+            $this->load->view($nombreVista, $datos);
             return;
         }
 

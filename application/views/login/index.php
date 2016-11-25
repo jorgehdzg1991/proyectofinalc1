@@ -10,7 +10,10 @@
 
     <!-- <link href="assets/less/styles.less" rel="stylesheet/less" media="all"> -->
     <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.min.css?=113") ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/pines-notify/jquery.pnotify.default.css") ?>">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+
+    <script type='text/javascript' src='<?php echo base_url("assets/js/jquery-1.10.2.min.js") ?>'></script>
 
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
 
@@ -33,7 +36,7 @@
     </style>
 </head>
 <body class="focusedform" style="background-color: #8c9998 !important;">
-
+<input type="hidden" id="mensajeFlash" value='<?php echo isset($mensajeFlash) ? json_encode($mensajeFlash) : '' ?>'>
 <div class="verticalcenter">
     <a href="https://www.matatenamx.com/"><img src="<?php echo base_url("assets/img/logo-big.png") ?>" alt="Logo" class="brand" /></a>
     <div class="panel panel-primary">
@@ -66,5 +69,11 @@
     </div>
 </div>
 
+<script type="text/javascript" src="<?php echo base_url("assets/plugins/pines-notify/jquery.pnotify.min.js") ?>"></script>
+<script>
+    if ($("#mensajeFlash").val() !== "") {
+        $.pnotify(JSON.parse($("#mensajeFlash").val()));
+    }
+</script>
 </body>
 </html>

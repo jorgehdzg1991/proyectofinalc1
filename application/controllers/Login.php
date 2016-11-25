@@ -30,8 +30,21 @@ class Login extends MY_Controller
                 "perfil" => $usuario["perfil"]
             ]]);
 
+            $nombreUsuario = explode(" ", $usuario["nombre"])[0];
+
+            $this->setMensajeFlash(
+                "¡Bienvenido $nombreUsuario!",
+                "Has iniciado sesión a las " . date("H:i:s"),
+                "info"
+            );
+
             redirect("inicio/index");
         } else {
+            $this->setMensajeFlash(
+                "Error de inicio de sesión",
+                "No se ha encontrado una combinación de usuario y contraseña válidos",
+                "error"
+            );
             redirect("login/index");
         }
     }
@@ -39,6 +52,7 @@ class Login extends MY_Controller
     public function end()
     {
         $this->session->unset_userdata("auth");
+        $this->setMensajeFlash("¡Hasta pronto!", "", "info");
         redirect("login/index");
     }
 }
