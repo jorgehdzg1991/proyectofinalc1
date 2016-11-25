@@ -7,6 +7,10 @@ class Categorias extends MY_Controller
     {
         parent::__construct();
 
+        if (!$this->ValidarSesion()) {
+            redirect("login/index");
+        }
+
         $this->load->model("categorias_model");
         $this->load->model("usuarios_model");
     }

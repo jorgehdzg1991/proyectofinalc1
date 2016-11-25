@@ -8,6 +8,10 @@ class Unidades extends MY_Controller
     {
         parent::__construct();
 
+        if (!$this->ValidarSesion()) {
+            redirect("login/index");
+        }
+
         $this->load->model("unidades_model");
         $this->load->model("usuarios_model");
     }

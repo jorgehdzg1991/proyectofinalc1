@@ -8,6 +8,10 @@ class Almacenes extends MY_Controller
     {
         parent::__construct();
 
+        if (!$this->ValidarSesion()) {
+            redirect("login/index");
+        }
+
         $this->load->model("almacenes_model");
         $this->load->model("usuarios_model");
     }
