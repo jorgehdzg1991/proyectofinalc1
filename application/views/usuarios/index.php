@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped datatables" id="tblUsuarios">
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -36,16 +36,15 @@
                             </thead>
                             <tbody>
                             <?php
-                            if (count($usuarios) > 0) {
-                                foreach ($usuarios as $usuario) {
-                                    $accionEliminar = $authId != $usuario["id"] ? '
+                            foreach ($usuarios as $usuario) {
+                                $accionEliminar = $authId != $usuario["id"] ? '
                                     <a href="javascript: eliminarUsuario(\'' . site_url("usuarios/eliminar/{$usuario["id"]}") . '\', \'' . $usuario["nombre"] . '\');"
                                        class="btn btn-danger btn-sm"
                                        title="Eliminar usuario">
                                         <i class="fa fa-trash-o"></i>
                                     </a>' : '';
 
-                                    echo '
+                                echo '
                                     <tr>
                                         <td>' . $usuario["id"] . '</td>
                                         <td>' . $usuario["nombre"] . '</td>
@@ -62,16 +61,6 @@
                                             ' . $accionEliminar . '
                                         </td>
                                     </tr>';
-                                }
-                            } else {
-                                echo '
-                                <tr>
-                                    <td colspan="5">
-                                        Actualmente no hay usuarios registrados en el sistema. Haz click en el
-                                        botón de abajo para crear uno nuevo.<br><br>
-                                        <a href="' . site_url("usuarios/crear") . '" class="btn btn-primary">Crear un usuario ahora</a>
-                                    </td>
-                                </tr>';
                             }
                             ?>
                             </tbody>

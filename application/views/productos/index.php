@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped datatables" id="tblProductos">
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -38,9 +38,8 @@
                             </thead>
                             <tbody>
                             <?php
-                            if (count($productos) > 0) {
-                                foreach ($productos as $producto) {
-                                    echo '
+                            foreach ($productos as $producto) {
+                                echo '
                                     <tr>
                                         <td>' . $producto["id"] . '</td>
                                         <td>' . $producto["nombre"] . '</td>
@@ -60,16 +59,6 @@
                                             </a>
                                         </td>
                                     </tr>';
-                                }
-                            } else {
-                                echo '
-                                <tr>
-                                    <td colspan="9">
-                                        No se encontraron registros en tu catálogo de productos. 
-                                        Si deseas crear uno ahora, haz click en el botón de abajo.<br><br>
-                                        <a href="' . site_url("productos/crear") . '" class="btn btn-primary">Crear un producto ahora</a>
-                                    </td>
-                                </tr>';
                             }
                             ?>
                             </tbody>

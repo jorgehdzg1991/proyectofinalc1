@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped datatables" id="tblAlmacenes">
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -34,9 +34,8 @@
                             </thead>
                             <tbody>
                             <?php
-                            if (count($almacenes) > 0) {
-                                foreach ($almacenes as $almacen) {
-                                    echo '
+                            foreach ($almacenes as $almacen) {
+                                echo '
                                     <tr>
                                         <td>' . $almacen["id"] . '</td>
                                         <td>' . $almacen["nombre"] . '</td>
@@ -55,16 +54,6 @@
                                             </a>
                                         </td>
                                     </tr>';
-                                }
-                            } else {
-                                echo '
-                                <tr>
-                                    <td colspan="5">
-                                        No se encontraron registros en tu catálogo de almacenes. 
-                                        Si deseas crear uno ahora, haz click en el botón de abajo.<br><br>
-                                        <a href="' . site_url("almacenes/crear") . '" class="btn btn-primary">Crear un almacén ahora</a>
-                                    </td>
-                                </tr>';
                             }
                             ?>
                             </tbody>
@@ -97,6 +86,5 @@
                 }
             }
         });
-
     }
 </script>

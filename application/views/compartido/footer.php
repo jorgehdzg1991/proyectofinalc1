@@ -29,6 +29,8 @@
     <script type='text/javascript' src='<?php echo base_url("assets/plugins/easypiechart/jquery.easypiechart.min.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/plugins/sparklines/jquery.sparklines.min.js") ?>'></script>
     <script type="text/javascript" src="<?php echo base_url("assets/plugins/form-select2/select2.min.js") ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/plugins/datatables/jquery.dataTables.min.js") ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/plugins/datatables/dataTables.bootstrap.js") ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/plugins/pines-notify/jquery.pnotify.min.js") ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/plugins/bootbox/bootbox.min.js") ?>"></script>
     <script type='text/javascript' src='<?php echo base_url("assets/plugins/form-toggle/toggle.min.js") ?>'></script>
@@ -36,9 +38,29 @@
     <script type='text/javascript' src='<?php echo base_url("assets/js/application.js") ?>'></script>
     <script type='text/javascript' src='<?php echo base_url("assets/demo/demo.js") ?>'></script>
     <script>
-        $(".select2-element").select2();
-
         $(document).ready(function () {
+            $(".select2-element").select2();
+
+            $('.datatables').dataTable({
+                "sDom": "<'row'<'col-xs-6'l><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
+                "sPaginationType": "bootstrap",
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_ Registros por página",
+                    "sSearch": "",
+                    "sZeroRecords": "No se encontraron registros en el catálogo",
+                    "sInfo": "Se obtuvo un total de _TOTAL_ registros (se muestran del _START_ al _END_)",
+                    "sInfoEmpty": "",
+                    "sInfoFiltered": "Filtrado entre un total de _MAX_ registros",
+                    "oPaginate": {
+                        "sPrevious": "Anterior",
+                        "sNext": "Siguiente"
+                    }
+                }
+            });
+
+            $('.dataTables_filter input').addClass('form-control').attr('placeholder', 'Buscar...');
+            $('.dataTables_length select').addClass('form-control');
+
             $.fn.navegarElemento = function() {
                 $('html, body').animate({
                     scrollTop: $(this).offset().top + 'px'

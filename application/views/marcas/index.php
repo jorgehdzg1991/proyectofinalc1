@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped datatables" id="tblMarcas">
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -34,9 +34,8 @@
                             </thead>
                             <tbody>
                             <?php
-                            if (count($marcas) > 0) {
-                                foreach ($marcas as $marca) {
-                                    echo '
+                            foreach ($marcas as $marca) {
+                                echo '
                                     <tr>
                                         <td>' . $marca["id"] . '</td>
                                         <td>' . $marca["nombre"] . '</td>
@@ -52,16 +51,6 @@
                                             </a>
                                         </td>
                                     </tr>';
-                                }
-                            } else {
-                                echo '
-                                <tr>
-                                    <td colspan="5">
-                                        No se encontraron registros en tu catálogo de marcas. 
-                                        Si deseas crear uno ahora, haz click en el botón de abajo.<br><br>
-                                        <a href="' . site_url("marcas/crear") . '" class="btn btn-primary">Crear una marca ahora</a>
-                                    </td>
-                                </tr>';
                             }
                             ?>
                             </tbody>

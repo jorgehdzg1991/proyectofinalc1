@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-hover">
+                        <table class="table table-bordered table-striped table-hover datatables" id="tblCategorias">
                             <thead>
                             <tr>
                                 <th>No.</th>
@@ -34,9 +34,8 @@
                             </thead>
                             <tbody>
                             <?php
-                            if (count($categorias) > 0) {
-                                foreach ($categorias as $categorias) {
-                                    echo '
+                            foreach ($categorias as $categorias) {
+                                echo '
                                     <tr>
                                         <td>' . $categorias["id"] . '</td>
                                         <td>' . $categorias["nombre"] . '</td>
@@ -53,16 +52,6 @@
                                             </a>
                                         </td>
                                     </tr>';
-                                }
-                            } else {
-                                echo '
-                                <tr>
-                                    <td colspan="5">
-                                        No se encontraron registros en tu catálogo de categorías de producto. 
-                                        Si deseas crear una ahora, haz click en el botón de abajo.<br><br>
-                                        <a href="' . site_url("categorias/crear") . '" class="btn btn-primary">Crear una categoría ahora</a>
-                                    </td>
-                                </tr>';
                             }
                             ?>
                             </tbody>
@@ -95,6 +84,5 @@
                 }
             }
         });
-
     }
 </script>
