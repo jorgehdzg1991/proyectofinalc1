@@ -45,12 +45,12 @@
                 "sDom": "<'row'<'col-xs-6'l><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",
                 "sPaginationType": "bootstrap",
                 "oLanguage": {
-                    "sLengthMenu": "_MENU_ Registros por página",
+                    "sLengthMenu": "_MENU_ registros por página",
                     "sSearch": "",
                     "sZeroRecords": "No se encontraron registros en el catálogo",
                     "sInfo": "Se obtuvo un total de _TOTAL_ registros (se muestran del _START_ al _END_)",
                     "sInfoEmpty": "",
-                    "sInfoFiltered": "Filtrado entre un total de _MAX_ registros",
+                    "sInfoFiltered": "filtrado entre un total de _MAX_ registros",
                     "oPaginate": {
                         "sPrevious": "Anterior",
                         "sNext": "Siguiente"
