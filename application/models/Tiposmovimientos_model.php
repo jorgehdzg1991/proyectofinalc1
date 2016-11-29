@@ -14,4 +14,10 @@ class Tiposmovimientos_model extends CI_Model
         $query = $this->db->get_where("tiposmovimientos", ["id" => $id], 1);
         return $query->row_array();
     }
+
+    public function obtenerPorTipo($tipo)
+    {
+        $query = $this->db->get_where("tiposmovimientos", ["direccion" => $tipo]);
+        return $query->result_array();
+    }
 }
