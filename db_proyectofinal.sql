@@ -2,7 +2,7 @@
 MySQL Backup
 Source Server Version: 10.1.16
 Source Database: db_proyectofinal
-Date: 24/11/2016 22:57:11
+Date: 03/12/2016 12:00:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ CREATE TABLE `almacenes` (
   PRIMARY KEY (`id`),
   KEY `FK_almacenes_usuarios` (`usuarios_id`),
   CONSTRAINT `FK_almacenes_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `categorias`
@@ -35,7 +35,7 @@ CREATE TABLE `categorias` (
   PRIMARY KEY (`id`),
   KEY `FK_categorias_usuarios` (`usuarios_id`),
   CONSTRAINT `FK_categorias_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `configuraciones`
@@ -46,17 +46,14 @@ CREATE TABLE `configuraciones` (
   `header_hojasestilos_id` int(11) DEFAULT NULL,
   `sidebar_hojasestilos_id` int(11) DEFAULT NULL,
   `tema_hojasestilos_id` int(11) DEFAULT NULL,
-  `usuarios_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_configuraciones_usuarios` (`usuarios_id`),
   KEY `FK_configuraciones_hojasestilos_header` (`header_hojasestilos_id`),
   KEY `FK_configuraciones_hojasestilos_sidebar` (`sidebar_hojasestilos_id`),
   KEY `FK_configuraciones_hojasestilos_tema` (`tema_hojasestilos_id`),
   CONSTRAINT `FK_configuraciones_hojasestilos_header` FOREIGN KEY (`header_hojasestilos_id`) REFERENCES `hojasestilos` (`id`),
   CONSTRAINT `FK_configuraciones_hojasestilos_sidebar` FOREIGN KEY (`sidebar_hojasestilos_id`) REFERENCES `hojasestilos` (`id`),
-  CONSTRAINT `FK_configuraciones_hojasestilos_tema` FOREIGN KEY (`tema_hojasestilos_id`) REFERENCES `hojasestilos` (`id`),
-  CONSTRAINT `FK_configuraciones_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  CONSTRAINT `FK_configuraciones_hojasestilos_tema` FOREIGN KEY (`tema_hojasestilos_id`) REFERENCES `hojasestilos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `hojasestilos`
@@ -83,7 +80,7 @@ CREATE TABLE `marcas` (
   PRIMARY KEY (`id`),
   KEY `FK_marcas_usuarios` (`usuarios_id`),
   CONSTRAINT `FK_marcas_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `movimientos`
@@ -107,7 +104,7 @@ CREATE TABLE `movimientos` (
   CONSTRAINT `FK_movimientos_productos` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`id`),
   CONSTRAINT `FK_movimientos_tiposmovimientos` FOREIGN KEY (`tiposmovimientos_id`) REFERENCES `tiposmovimientos` (`id`),
   CONSTRAINT `FK_movimientos_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `productos`
@@ -132,7 +129,7 @@ CREATE TABLE `productos` (
   CONSTRAINT `FK_productos_marcas` FOREIGN KEY (`marcas_id`) REFERENCES `marcas` (`id`),
   CONSTRAINT `FK_productos_unidades` FOREIGN KEY (`unidades_id`) REFERENCES `unidades` (`id`),
   CONSTRAINT `FK_productos_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `tiposmovimientos`
@@ -159,7 +156,7 @@ CREATE TABLE `unidades` (
   PRIMARY KEY (`id`),
   KEY `FK_unidades_usuarios` (`usuarios_id`),
   CONSTRAINT `FK_unidades_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `usuarios`
@@ -175,12 +172,17 @@ CREATE TABLE `usuarios` (
   `fechaCreacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `estatus` bit(1) DEFAULT b'1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Records 
 -- ----------------------------
-INSERT INTO `configuraciones` VALUES ('1','11','6','9','1');
+INSERT INTO `almacenes` VALUES ('1','Almacén 1','1','2016-11-28 20:34:39',''), ('2','Almacén 2','1','2016-11-28 20:34:19',''), ('3','Almacén 3','1','2016-11-28 20:34:32','');
+INSERT INTO `categorias` VALUES ('1','Zapato formal','1','2016-11-24 23:34:54',''), ('2','Zapato casual','1','2016-11-24 23:35:03',''), ('3','Tenis para correr','1','2016-11-24 23:35:10',''), ('4','Tenis casual','1','2016-11-24 23:35:23',''), ('5','Tenis skate','1','2016-11-24 23:37:43',''), ('6','Tacones','1','2016-11-24 23:35:39',''), ('7','Valerinas','1','2016-11-24 23:35:47',''), ('8','Tachos de futbol','1','2016-11-24 23:36:22',''), ('9','Mocasin','1','2016-11-24 23:36:53',''), ('10','Bostoniano','1','2016-11-24 23:37:01',''), ('11','Bota insdustrial','1','2016-11-24 23:37:10',''), ('12','Bota casual','1','2016-11-24 23:37:18',''), ('13','Zapatillas de ballet','1','2016-11-26 02:16:55','');
 INSERT INTO `hojasestilos` VALUES ('1','Negro','header-black','header'), ('2','Azul','header-blue','header'), ('3','Verde','header-green','header'), ('4','Rojo','header-red','header'), ('5','Acero','header-steel','header'), ('6','Verde','sidebar-green','sidebar'), ('7','Lavanda','sidebar-lavender','sidebar'), ('8','Acero','sidebar-steel','sidebar'), ('9','Verde','verde','tema'), ('10','Daltonico','daltonico','tema'), ('11','Default','default','header');
+INSERT INTO `marcas` VALUES ('1','Brantano','1','2016-11-24 23:39:01',''), ('2','Flexi','1','2016-11-24 23:39:11',''), ('3','EFE','1','2016-11-24 23:39:15',''), ('4','Capa de Ozono','1','2016-11-24 23:39:30',''), ('5','Fabián Arenas','1','2016-11-24 23:39:46',''), ('6','Aretina','1','2016-11-24 23:39:52',''), ('7','Nike','1','2016-11-24 23:44:37',''), ('8','Sperry','1','2016-11-26 00:17:08','');
+INSERT INTO `movimientos` VALUES ('1','10','Lo que sea','1','1','1','1','2016-12-03 11:59:58'), ('2','20','Lo que sea','1','2','2','1','2016-12-03 11:59:58'), ('3','15','Lo que sea','1','3','3','1','2016-12-03 11:59:58'), ('4','22','Lo que sea','1','4','1','1','2016-12-03 11:59:58'), ('5','43','Lo que sea','1','1','2','1','2016-12-03 11:59:59'), ('6','12','Lo que sea','1','2','3','1','2016-12-03 11:59:59'), ('7','9','Lo que sea','1','3','1','1','2016-12-03 11:59:59'), ('8','25','Lo que sea','1','4','2','1','2016-12-03 12:00:00');
+INSERT INTO `productos` VALUES ('1','Mocasin modelo 4F56 color chocolate','Mocasines casuales','2','1','5','1','2016-11-24 23:43:12',''), ('2','Tenis Nike Running modelo v8 color Blanco/Negro','Especiales para correr','1','1','7','1','2016-11-24 23:44:51',''), ('3','Bahamas color café','Una descripción','4','1','8','1','2016-11-26 00:18:10',''), ('4','Zapatilla de ballet rosa','KJDHFKJDHFKJHEL','13','1','3','1','2016-11-26 02:17:50','');
 INSERT INTO `tiposmovimientos` VALUES ('1','Entrada','+'), ('2','Salida','-'), ('3','Devolución','+'), ('4','Merma','-');
-INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','1','2016-11-24 22:56:55','');
+INSERT INTO `unidades` VALUES ('1','Par','par','1','2016-11-24 23:41:50','');
+INSERT INTO `usuarios` VALUES ('1','Jorge Hernández García','1','jorge','cc03e747a6afbbcbf8be7668acfebee5','1','2016-11-24 22:56:55',''), ('2','Sleiman Elachkar Michell','1','soly','0192023a7bbd73250516f069df18b500','1','2016-11-26 02:18:46','');
