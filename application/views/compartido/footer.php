@@ -47,7 +47,7 @@
                 "oLanguage": {
                     "sLengthMenu": "_MENU_ registros por página",
                     "sSearch": "",
-                    "sZeroRecords": "No se encontraron registros en el catálogo",
+                    "sZeroRecords": "No se encontraron registros",
                     "sInfo": "Se obtuvo un total de _TOTAL_ registros (se muestran del _START_ al _END_)",
                     "sInfoEmpty": "",
                     "sInfoFiltered": "filtrado entre un total de _MAX_ registros",
