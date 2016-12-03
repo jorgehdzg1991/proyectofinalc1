@@ -26,7 +26,7 @@ abstract class MY_Controller extends CI_Controller
 
         $datos["auth"] = $this->session->userdata("auth");
 
-        $configuracion = $this->configuraciones_model->obtenerPorUsuario($datos["auth"]["id"]);
+        $configuracion = $this->configuraciones_model->obtenerPorId(1);
 
         $estiloHeader = $this->hojasestilos_model->obtenerPorId($configuracion["header_hojasestilos_id"]);
         $estiloSidebar = $this->hojasestilos_model->obtenerPorId($configuracion["sidebar_hojasestilos_id"]);

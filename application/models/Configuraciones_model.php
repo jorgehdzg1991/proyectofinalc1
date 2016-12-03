@@ -15,12 +15,6 @@ class Configuraciones_model extends CI_Model
         return $query->row_array();
     }
 
-    public function obtenerPorUsuario($idUsuario)
-    {
-        $query = $this->db->get_where("configuraciones", ["usuarios_id" => $idUsuario], 1);
-        return $query->row_array();
-    }
-
     public function crear($data)
     {
         return $this->db->insert("configuraciones", $data) ? true : false;
