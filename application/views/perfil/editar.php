@@ -1,58 +1,65 @@
 <div id="page-heading">
     <ol class="breadcrumb">
         <li><a href="<?php echo site_url("inicio/index") ?>">Inicio</a></li>
-        <li><a href="<?php echo site_url("perfil/index") ?>">Perfil</a></li>
-        <li>Editar</li>
+        <li><a href="<?php echo site_url("usuarios/index") ?>">Usuarios</a></li>
+        <li>Editar usuario</li>
     </ol>
-    <h1>Perfil</h1>    
+    <h1>Editar Perfil de Usuario</h1>
+    <div class="options">
+        <div class="btn-toolbar">
+            <a href="<?php echo site_url("usuarios/index") ?>" class="btn btn-default">
+                <i class="fa fa-arrow-left"></i> Regresar
+            </a>
+        </div>
+    </div>
 </div>
+
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <?php echo form_open("usuarios/actualizar", ["class" => "form-horizontal", "id" => "frmCrearUsuario"]) ?>
+                <div class="panel-heading">
+                    <h4>Editar usuario: <?php echo $auth["nombre"] ?></h4>
+                </div>
+                <div class="panel-body">
+                    <input type="hidden" id="txtId" name="id" value="<?php echo $auth["id"] ?>">
+                    <div class="form-group">
+                        <label for="txtNombre" class="control-label col-sm-3">Nombre</label>
+                        <div class="col-sm-6">
+                            <input type="text"
+                                   class="form-control"
+                                   id="txtNombre"
+                                   name="nombre"
+                                   placeholder="Escribe el nombre completo del usuario"
+                                   value="<?php echo $auth["nombre"] ?>">
+                        </div>
                     </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4>
-                            <div class="form-group">
-                                <div class="col-sm-8">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="txtNombre"
-                                           name="nombre"
-                                           placeholder="Escribe el nombre del Usuario"
-                                           value="<?php echo $auth["nombre"] ?>">
-                                </div>
-                            </div>    
-                            <br/>
-                        </h4>
-                        <small><cite>ID: <i class="glyphicon glyphicon-map-marker">
-                                </i><?php echo $auth["id"] ?></cite></small>
-                        <br/>
-                        <small><cite>Usuario: <i class="glyphicon glyphicon-map-marker">
-                                </i><?php echo $auth["login"] ?></cite></small>
-                        <br/>
-                        <small><cite>Tipo de Usuario: <i class="glyphicon glyphicon-map-marker">
-                                </i><?php
-                                if ($auth["perfil"] == 1) {
-                                    echo "Administrador";
-                                } else {
-                                    echo "Usuario del sistema";
-                                }
-                                ?></cite></small>
-                        <br/><br/>
-                        <div class="options">
+                    <div class="form-group">
+                        <label for="cmbPerfil" class="control-label col-sm-3">Perfil</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="perfil" id="cmbPerfil">
+                                <option value="2"<?php echo $auth["perfil"] == "2" ? " selected" : "" ?>>
+                                    Usuario del sistema
+                                </option>
+                                <option value="1"<?php echo $auth["perfil"] == "1" ? " selected" : "" ?>>
+                                    Administrador
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
                             <div class="btn-toolbar">
-                                <a href="#" disabled class="btn btn-default">Editar</a>
-                                <td><button class="btn-primary btn">Actualizar</button></td>
+                                <button class="btn-primary btn">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php echo form_close() ?>
             </div>
         </div>
     </div>
-</div>
 </div>
