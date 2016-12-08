@@ -1,18 +1,18 @@
 <div id="page-heading">
     <ol class="breadcrumb">
         <li><a href="<?php echo site_url("inicio/index") ?>">Inicio</a></li>
-        <li>Movimientos: Entradas</li>
+        <li>Movimientos: Salidas</li>
     </ol>
-    <h1>Entradas a almacén</h1>
+    <h1>Salidas de almacén</h1>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-primary">
-                <?php echo form_open("movimientos/registrarEntrada", ["class" => "form-horizontal", "id" => "frmEntradas"]) ?>
+                <?php echo form_open("movimientos/registrarSalida", ["class" => "form-horizontal", "id" => "frmSalidas"]) ?>
                 <div class="panel-heading">
-                    <h4>Registrar una entada a almacén</h4>
+                    <h4>Registrar una salida de almacén</h4>
                 </div>
                 <div class="panel-body">
                     <div class="form-group" id="frgAlmacen">
@@ -54,7 +54,7 @@
                     <div class="form-group" id="frgCantidad">
                         <label for="txtCantidad" class="control-label col-sm-3">Cantidad</label>
                         <div class="col-sm-6">
-                            <input type="number" name="cantidad" id="txtCantidad" class="form-control" min="1" value="1" placeholder="¿Qué cantidad va a entrar al almacén?">
+                            <input type="number" name="cantidad" id="txtCantidad" class="form-control" min="1" value="1" placeholder="¿Qué cantidad va a salir del almacén?">
                         </div>
                         <div class="col-sm-3">
                             <p class="help-block" style="display: none;">
@@ -78,7 +78,7 @@
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
                             <div class="btn-toolbar">
-                                <a href="javascript: guardarEntrada();" class="btn-primary btn">Guardar</a>
+                                <a href="javascript: guardarSalida();" class="btn-primary btn">Guardar</a>
                             </div>
                         </div>
                     </div>
@@ -91,9 +91,9 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#frmEntradas").keypress(function(e) {
+        $("#frmSalidas").keypress(function(e) {
             if(e.which == 13) {
-                guardarEntrada();
+                guardarSalida();
             }
         });
 
@@ -113,7 +113,7 @@
         });
     });
 
-    function guardarEntrada() {
+    function guardarSalida() {
         var producto = $("#cmbProducto").val();
         var almacen = $("#cmbAlmacen").val();
         var cantidad = $("#txtCantidad").val();
@@ -136,6 +136,6 @@
             return;
         }
 
-        $("#frmEntradas").submit();
+        $("#frmSalidas").submit();
     }
 </script>

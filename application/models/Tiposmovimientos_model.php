@@ -20,4 +20,19 @@ class Tiposmovimientos_model extends CI_Model
         $query = $this->db->get_where("tiposmovimientos", ["direccion" => $tipo]);
         return $query->result_array();
     }
+
+    public function obtenerTiposAjuste($tipo)
+    {
+        $sql = "
+            SELECT *
+            FROM tiposmovimientos
+            WHERE
+                id = 3
+            OR id = 4";
+
+        $query = $this->db->query($sql);
+
+        return $query->result_array();
+    }
+
 }

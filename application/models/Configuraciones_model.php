@@ -1,11 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Created by PhpStorm.
- * User: jorge
- * Date: 07/12/2016
- * Time: 07:52 PM
- */
 class Configuraciones_model extends CI_Model
 {
     public function __construct()
