@@ -1,0 +1,23 @@
+ol.breadcrumb>li>a {
+    color: #dca709 !important;
+}
+
+.panel-primary .panel-heading {
+    background-color: #2a4287 !important;
+}
+
+.panel-primary .panel-body {
+    border-top: 2px solid #2a4287 !important;
+}
+
+.btn-primary {
+    background-color: #dca709 !important;
+}
+
+.btn-primary:hover {
+    background-color: #b98409 !important;
+}
+
+#sidebar>li.active>a {
+    background-color: #2a4287 !important;
+}

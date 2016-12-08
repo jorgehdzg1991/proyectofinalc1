@@ -1,15 +1,23 @@
+ol.breadcrumb>li>a {
+    color: #8a3c94 !important;
+}
+
 .panel-primary .panel-heading {
-    background-color: #50dfab !important;
+    background-color: #458715 !important;
 }
 
 .panel-primary .panel-body {
-    border-top: 2px solid #50dfab !important;
+    border-top: 2px solid #458715 !important;
 }
 
 .btn-primary {
-    background-color: #50dfab !important;
+    background-color: #8a3c94 !important;
 }
 
 .btn-primary:hover {
-    background-color: #4dc390 !important;
+    background-color: #733d7d !important;
+}
+
+#sidebar>li.active>a {
+    background-color: #458715 !important;
 }

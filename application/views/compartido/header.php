@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.min.css?=113") ?>">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 
-    <link href='<?php echo base_url("assets/demo/variations/sidebar-steel.css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
+    <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
     <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
+    <link href='<?php echo base_url("assets/css/themes/amarillo.css") ?>' rel='stylesheet' type='text/css' media='all' id='themeswitcher'>
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
 

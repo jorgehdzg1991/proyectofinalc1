@@ -12,7 +12,6 @@ class Usuarios extends MY_Controller
         }
 
         $this->load->model("usuarios_model");
-        $this->load->model("configuraciones_model");
     }
 
     public function index()
