@@ -5,6 +5,8 @@ abstract class MY_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        $this->load->model('configuraciones_model');
     }
 
     final protected function CargarVista($nombreVista, $datos = null)
@@ -20,6 +22,10 @@ abstract class MY_Controller extends CI_Controller
             $this->load->view($nombreVista, $datos);
             return;
         }
+
+        $configuracion = $this->configuraciones_model->ObtenerConfiguracion();
+
+        $datos['tema'] = $configuracion['url'];
 
         $datos["auth"] = $this->session->userdata("auth");
 

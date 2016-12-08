@@ -14,7 +14,7 @@
 
     <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='styleswitcher'>
     <link href='<?php echo base_url("assets/demo/variations/default.css") ?>' rel='stylesheet' type='text/css' media='all' id='headerswitcher'>
-    <link href='<?php echo base_url("assets/css/themes/amarillo.css") ?>' rel='stylesheet' type='text/css' media='all' id='themeswitcher'>
+    <link href='<?php echo base_url($tema) ?>' rel='stylesheet' type='text/css' media='all' id='themeswitcher'>
 
     <!-- The following CSS are included as plugins and can be removed if unused-->
 
