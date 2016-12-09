@@ -23,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/plugins/pines-notify/jquery.pnotify.default.css") ?>">
     <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/codeprettifier/prettify.css") ?>' />
     <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/form-toggle/toggles.css") ?>' />
+    <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/js/jqueryui.css") ?>' />
+    <link rel='stylesheet' type='text/css' href='<?php echo base_url("assets/plugins/form-daterangepicker/daterangepicker-bs3.css") ?>' />
 
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
 
