@@ -11,6 +11,7 @@ class Configuraciones_model extends CI_Model
     public function ObtenerConfiguracion() {
         $sql = "
         SELECT
+            tema.id AS idTema,
             tema.url AS url
         FROM
             configuraciones AS conf
@@ -21,5 +22,9 @@ class Configuraciones_model extends CI_Model
         $query = $this->db->query($sql);
 
         return $query->row_array();
+    }
+
+    public function Actualizar($data) {
+        return $this->db->where("id", 1)->update("configuraciones", $data) ? true : false;
     }
 }
