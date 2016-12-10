@@ -17,7 +17,7 @@
 
     <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
 
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/themes/default.css") ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/themes/verde.css") ?>">
 </head>
 <body class="focusedform" style="background-color: #8c9998 !important;">
 <input type="hidden" id="mensajeFlash" value='<?php echo isset($mensajeFlash) ? json_encode($mensajeFlash) : '' ?>'>

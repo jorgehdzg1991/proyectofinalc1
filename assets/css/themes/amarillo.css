@@ -1,5 +1,5 @@
 ol.breadcrumb>li>a {
-    color: #3365cd !important;
+    color: #913d9b !important;
 }
 
 .panel-primary .panel-heading {
@@ -11,11 +11,11 @@ ol.breadcrumb>li>a {
 }
 
 .btn-primary {
-    background-color: #3365cd !important;
+    background-color: #913d9b !important;
 }
 
 .btn-primary:hover {
-    background-color: #3056aa !important;
+    background-color: #73347d !important;
 }
 
 #sidebar>li.active>a {
