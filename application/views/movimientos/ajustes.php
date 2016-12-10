@@ -140,6 +140,7 @@
         var producto = $("#cmbProducto").val();
         var almacen = $("#cmbAlmacen").val();
         var cantidad = $("#txtCantidad").val();
+        var tipo = $('#cmbTipoMov').val();
 
         if (producto === '0') {
             $("#frgProducto").addClass('has-error');

@@ -78,7 +78,7 @@ class Movimientos extends MY_Controller
         $usuario = $this->session->userdata("auth");
 
         $datosMovimiento = [
-            "cantidad" => $cantidad,
+            "cantidad" => $cantidad * -1,
             "observaciones" => $observaciones,
             "tiposmovimientos_id" => 2,
             "productos_id" => $producto,
@@ -121,6 +121,8 @@ class Movimientos extends MY_Controller
         $tipo = $_POST["tipo"];
         $cantidad = $_POST["cantidad"];
         $observaciones = $_POST["observaciones"];
+
+        $cantidad = $tipo == '4' ? $cantidad * -1 : $cantidad;
 
         $usuario = $this->session->userdata("auth");
 
